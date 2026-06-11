@@ -1,0 +1,138 @@
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .focus-areas {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .project-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .project-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .windows-window {
+        margin: 10px;
+    }
+    
+    .windows-taskbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        border: none;
+        margin: 0;
+        background: rgba(30, 40, 60, 0.98);
+    }
+    
+    .taskbar-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    .taskbar-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .section-content {
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .profile-header {
+        padding: 15px;
+    }
+    
+    .profile-info h1 {
+        font-size: 28px;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .social-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .project-card {
+        margin-bottom: 15px;
+    }
+    
+    .blog-entry {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-tags {
+        justify-content: center;
+    }
+    
+    .windows-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    .windows-panel {
+        margin-bottom: 15px;
+    }
+}

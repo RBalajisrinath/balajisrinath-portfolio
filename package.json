@@ -1,0 +1,33 @@
+{
+  "name": "cybersecurity-windows-portfolio",
+  "version": "1.0.0",
+  "description": "A cybersecurity-themed portfolio with Windows 11 theme design",
+  "main": "src/js/app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "portfolio",
+    "cybersecurity",
+    "windows",
+    "windows-11",
+    "security",
+    "developer"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^4.5.0",
+    "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "prettier": "^3.1.1",
+    "eslint": "^8.55.0"
+  }
+}

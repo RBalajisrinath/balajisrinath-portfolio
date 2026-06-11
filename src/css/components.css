@@ -1,0 +1,108 @@
+.window-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 4px;
+}
+
+.window-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.window-minimize {
+    background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+    color: #e2e8f0;
+}
+
+.window-maximize {
+    background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+    color: #e2e8f0;
+}
+
+.window-close {
+    background: linear-gradient(180deg, #e53e3e 0%, #c53030 100%);
+    color: white;
+}
+
+.window-close:hover {
+    background: linear-gradient(180deg, #f56565 0%, #e53e3e 100%);
+}
+
+.windows-taskbar {
+    background: linear-gradient(180deg, rgba(45, 55, 70, 0.95) 0%, rgba(30, 40, 60, 0.98) 100%);
+    padding: 8px 0;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    backdrop-filter: blur(20px);
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.taskbar-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 20px;
+    background: none;
+    border: none;
+    color: #cbd5e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.taskbar-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.taskbar-btn.active {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.taskbar-btn svg {
+    margin-bottom: 4px;
+}
+
+.taskbar-btn span {
+    font-size: 12px;
+}
+
+.windows-start-menu {
+    background: linear-gradient(180deg, rgba(45, 55, 70, 0.98) 0%, rgba(30, 40, 60, 0.98) 100%);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+}
+
+.windows-start-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.windows-start-btn:hover {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+}
+
+.windows-start-btn svg {
+    margin-bottom: 8px;
+}

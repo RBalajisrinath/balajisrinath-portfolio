@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.windows-bg {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3b5998 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.windows-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.windows-window {
+    background: linear-gradient(145deg, rgba(30, 40, 60, 0.95) 0%, rgba(20, 30, 45, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.windows-titlebar {
+    background: linear-gradient(180deg, rgba(60, 70, 90, 1) 0%, rgba(40, 50, 70, 1) 100%);
+    padding: 8px 12px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.window-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 4px;
+}
+
+.window-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.window-minimize {
+    background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+    color: #e2e8f0;
+}
+
+.window-maximize {
+    background: linear-gradient(180deg, #4a5568 0%, #2d3748 100%);
+    color: #e2e8f0;
+}
+
+.window-close {
+    background: linear-gradient(180deg, #e53e3e 0%, #c53030 100%);
+    color: white;
+}
+
+.window-close:hover {
+    background: linear-gradient(180deg, #f56565 0%, #e53e3e 100%);
+}
+
+.windows-taskbar {
+    background: linear-gradient(180deg, rgba(45, 55, 70, 0.95) 0%, rgba(30, 40, 60, 0.98) 100%);
+    padding: 8px 0;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    backdrop-filter: blur(20px);
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.taskbar-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 20px;
+    background: none;
+    border: none;
+    color: #cbd5e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.taskbar-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.taskbar-btn.active {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.taskbar-btn svg {
+    margin-bottom: 4px;
+}
+
+.taskbar-btn span {
+    font-size: 12px;
+}
+
+.windows-start-menu {
+    background: linear-gradient(180deg, rgba(45, 55, 70, 0.98) 0%, rgba(30, 40, 60, 0.98) 100%);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+}
+
+.windows-start-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.windows-start-btn:hover {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+}
+
+.windows-start-btn svg {
+    margin-bottom: 8px;
+}
+
+.windows-panel {
+    background: linear-gradient(145deg, rgba(55, 65, 85, 0.8) 0%, rgba(40, 50, 70, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.windows-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+.windows-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.windows-btn-primary {
+    background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+.windows-btn-primary:hover {
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.6);
+    transform: translateY(-1px);
+}
+
+.windows-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.windows-link:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+.windows-input {
+    background: linear-gradient(145deg, rgba(30, 40, 60, 0.8) 0%, rgba(20, 30, 45, 0.8) 100%);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 4px;
+    padding: 10px 12px;
+    color: white;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.windows-input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.windows-badge {
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.2) 0%, rgba(29, 78, 216, 0.2) 100%);
+    color: #93c5fd;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(29, 78, 216, 0.1) 100%);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #2563eb;
+    padding: 4px;
+    margin-right: 30px;
+    object-fit: cover;
+}
+
+.project-card {
+    height: 100%;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.project-title {
+    flex: 1;
+}
+
+.project-category {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-desc {
+    padding: 20px;
+    color: #cbd5e0;
+    line-height: 1.6;
+}
+
+.project-tags {
+    padding: 0 20px 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    background: rgba(37, 99, 235, 0.15);
+    color: #93c5fd;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.project-footer {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.skill-item {
+    padding: 20px;
+    text-align: center;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.skill-icon {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.skill-level {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.skill-percent {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+}
+
+.tool-item {
+    padding: 20px 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tool-item:hover {
+    transform: translateY(-5px);
+    background: rgba(37, 99, 235, 0.15);
+}
+
+.tool-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.tool-name {
+    font-size: 12px;
+    color: #cbd5e0;
+    font-weight: 600;
+}
+
+.blog-entry {
+    height: 100%;
+}
+
+.blog-meta {
+    margin-bottom: 15px;
+}
+
+.blog-date {
+    font-size: 12px;
+}
+
+.blog-title {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.blog-tags {
+    margin-bottom: 15px;
+}
+
+.blog-tag {
+    background: rgba(37, 99, 235, 0.15);
+    color: #93c5fd;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.social-link {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.social-icon {
+    font-size: 24px;
+}
+
+.social-name {
+    font-size: 11px;
+}
+
+.focus-item {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.focus-item:hover {
+    background: rgba(37, 99, 235, 0.1);
+    transform: translateY(-3px);
+}
+
+.section-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.section-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .focus-areas {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
