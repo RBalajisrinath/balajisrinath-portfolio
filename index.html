@@ -3,722 +3,645 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BALAJISRINATH R | CYBER-SENTINEL OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>CYBER-SENTINEL OS | PORTFOLIO</title>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
-<script>
-tailwind.config = {
-    darkMode: "class",
-    theme: {
-        extend: {
-            colors: {
-                "surface": "#111318",
-                "surface-dim": "#111318",
-                "surface-bright": "#37393e",
-                "surface-container-lowest": "#0c0e12",
-                "surface-container-low": "#1a1c20",
-                "surface-container": "#1e2024",
-                "surface-container-high": "#282a2e",
-                "surface-container-highest": "#333539",
-                "on-surface": "#e2e2e8",
-                "on-surface-variant": "#b9ccb2",
-                "outline": "#84967e",
-                "outline-variant": "#3b4b37",
-                "surface-tint": "#00e639",
-                "primary": "#ebffe2",
-                "primary-fixed": "#72ff70",
-                "primary-fixed-dim": "#00e639",
-                "on-primary-container": "#007117",
-                "secondary": "#98cbff",
-                "secondary-container": "#00a2fd",
-                "error": "#ffb4ab",
-                "error-container": "#93000a"
-            },
-            fontFamily: {
-                "headline": ["Geist"],
-                "mono": ["JetBrains Mono"],
-                "body": ["Geist"]
-            }
-        }
-    }
-}
-</script>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Geist', sans-serif; background: #111318; color: #e2e2e8; overflow-x: hidden; }
-    
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #00e639; }
-    
-    .scanlines {
-        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
-        background-size: 100% 4px;
-        pointer-events: none;
-    }
-    
-    @keyframes sweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .animate-sweep { animation: sweep 4s linear infinite; transform-origin: center right; }
-    
-    @keyframes glitch {
-        0% { transform: translate(0) }
-        20% { transform: translate(-2px, 1px) }
-        40% { transform: translate(-1px, -1px) }
-        60% { transform: translate(2px, 1px) }
-        80% { transform: translate(1px, -1px) }
-        100% { transform: translate(0) }
-    }
-    .glitch-hover:hover { animation: glitch 0.2s linear infinite; }
-    
-    @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-    .animate-scroll { animation: scroll 25s linear infinite; }
-    
-    @keyframes pulse-green { 0%, 100% { opacity: 1; box-shadow: 0 0 5px #00e639; } 50% { opacity: 0.5; box-shadow: 0 0 15px #00e639; } }
-    .pulse-green { animation: pulse-green 2s infinite; }
-    
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-    .float { animation: float 3s ease-in-out infinite; }
-    
-    @keyframes typing { from { width: 0; } to { width: 100%; } }
-    .typing-effect { overflow: hidden; white-space: nowrap; animation: typing 2s steps(40) forwards; }
-    
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    .cursor-blink { animation: blink 1s infinite; }
-    
-    @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-    .scan-line { animation: scan 3s linear infinite; }
-    
-    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-slide-up { animation: fadeSlideUp 0.6s ease forwards; }
-    
-    .section { display: none; }
-    .section.active { display: block; animation: fadeSlideUp 0.4s ease; }
-    
-    .nav-item { transition: all 0.2s; }
-    .nav-item:hover, .nav-item.active { background: rgba(0,230,57,0.1); color: #00e639; border-left-color: #00e639; }
-    
-    .card-hover { transition: all 0.3s; }
-    .card-hover:hover { border-color: #00e639; box-shadow: 0 0 20px rgba(0,230,57,0.15); transform: translateY(-2px); }
-    
-    .skill-ring { transition: all 0.4s; }
-    .skill-ring:hover { border-color: #00e639; box-shadow: 0 0 20px rgba(0,230,57,0.3); }
-    .skill-ring:hover .skill-icon { transform: scale(1.1) rotate(-5deg); filter: drop-shadow(0 0 8px #00e639); }
-    .skill-icon { transition: all 0.4s; }
-    
-    .corner-bracket { position: absolute; width: 12px; height: 12px; }
-    .corner-tl { top: 0; left: 0; border-top: 2px solid #00e639; border-left: 2px solid #00e639; }
-    .corner-tr { top: 0; right: 0; border-top: 2px solid #00e639; border-right: 2px solid #00e639; }
-    .corner-bl { bottom: 0; left: 0; border-bottom: 2px solid #00e639; border-left: 2px solid #00e639; }
-    .corner-br { bottom: 0; right: 0; border-bottom: 2px solid #00e639; border-right: 2px solid #00e639; }
-    
-    .status-chip { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; padding: 2px 8px; border: 1px solid; }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--surface:#111318;--surface-container:#1e2024;--surface-container-high:#282a2e;
+--surface-container-highest:#333539;--surface-container-low:#1a1c20;--surface-container-lowest:#0c0e12;
+--on-surface:#e2e2e8;--on-surface-variant:#b9ccb2;--outline:#84967e;--outline-variant:#3b4b37;
+--primary:#00e639;--primary-fixed:#72ff70;--primary-container:#00ff41;
+--secondary:#98cbff;--secondary-container:#00a2fd;
+--error:#ffb4ab;--error-container:#93000a;
+--bg:#111318;
+}
+body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface);overflow-x:hidden;min-height:100vh}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--primary)}
+
+.scanlines{background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0) 50%,rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1));background-size:100% 4px;pointer-events:none}
+
+@keyframes sweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.animate-sweep{animation:sweep 4s linear infinite;transform-origin:center right}
+
+@keyframes glitch{0%{transform:translate(0)}20%{transform:translate(-2px,1px)}40%{transform:translate(-1px,-1px)}60%{transform:translate(2px,1px)}80%{transform:translate(1px,-1px)}100%{transform:translate(0)}}
+.glitch-hover:hover{animation:glitch 0.2s linear infinite}
+
+@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+.animate-scroll{animation:scroll 25s linear infinite}
+
+@keyframes pulse-green{0%,100%{opacity:1;box-shadow:0 0 5px var(--primary)}50%{opacity:.5;box-shadow:0 0 15px var(--primary)}}
+.pulse-green{animation:pulse-green 2s infinite}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.float{animation:float 3s ease-in-out infinite}
+
+@keyframes typing{from{width:0}to{width:100%}}
+.typing-effect{overflow:hidden;white-space:nowrap;animation:typing 2s steps(40) forwards}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor-blink{animation:blink 1s infinite}
+
+@keyframes scan{0%{top:0}100%{top:100%}}
+.scan-line{animation:scan 3s linear infinite}
+
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.section{display:none}.section.active{display:block;animation:fadeSlideUp .4s ease}
+
+.nav-item{transition:all .2s;border-left:4px solid transparent}
+.nav-item:hover,.nav-item.active{background:rgba(0,230,57,.1);color:var(--primary);border-left-color:var(--primary)}
+
+.card-hover{transition:all .3s}.card-hover:hover{border-color:var(--primary);box-shadow:0 0 20px rgba(0,230,57,.15);transform:translateY(-2px)}
+
+.skill-ring{transition:all .4s}.skill-ring:hover{border-color:var(--primary);box-shadow:0 0 20px rgba(0,230,57,.3)}.skill-ring:hover .skill-icon{transform:scale(1.1) rotate(-5deg);filter:drop-shadow(0 0 8px var(--primary))}.skill-icon{transition:all .4s}
+
+.corner-bracket{position:absolute;width:12px;height:12px}.corner-tl{top:0;left:0;border-top:2px solid var(--primary);border-left:2px solid var(--primary)}.corner-tr{top:0;right:0;border-top:2px solid var(--primary);border-right:2px solid var(--primary)}.corner-bl{bottom:0;left:0;border-bottom:2px solid var(--primary);border-left:2px solid var(--primary)}.corner-br{bottom:0;right:0;border-bottom:2px solid var(--primary);border-right:2px solid var(--primary)}
+
+.status-chip{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;padding:2px 8px;border:1px solid}
+
+#matrix-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;opacity:.04;pointer-events:none}
 </style>
 </head>
-<body class="min-h-screen">
+<body>
+<canvas id="matrix-canvas"></canvas>
+
 <!-- Top Bar -->
-<header class="fixed top-0 w-full h-12 bg-surface/75 backdrop-blur-xl border-b border-outline-variant flex items-center justify-between px-4 z-50">
-    <div class="flex items-center gap-4">
-        <span class="font-headline text-lg font-bold text-primary-fixed-dim drop-shadow-[0_0_8px_rgba(0,230,57,0.5)] tracking-tight">CYBER-SENTINEL OS</span>
-        <nav class="hidden md:flex items-center gap-1 ml-4">
-            <a class="font-mono text-[11px] text-on-surface-variant hover:text-primary-fixed-dim px-2 py-1 cursor-pointer transition-colors" onclick="switchSection('about')">ABOUT</a>
-            <a class="font-mono text-[11px] text-on-surface-variant hover:text-primary-fixed-dim px-2 py-1 cursor-pointer transition-colors" onclick="switchSection('experience')">EXPERIENCE</a>
-            <a class="font-mono text-[11px] text-on-surface-variant hover:text-primary-fixed-dim px-2 py-1 cursor-pointer transition-colors" onclick="switchSection('projects')">PROJECTS</a>
-            <a class="font-mono text-[11px] text-on-surface-variant hover:text-primary-fixed-dim px-2 py-1 cursor-pointer transition-colors" onclick="switchSection('skills')">SKILLS</a>
-            <a class="font-mono text-[11px] text-on-surface-variant hover:text-primary-fixed-dim px-2 py-1 cursor-pointer transition-colors" onclick="switchSection('contact')">CONTACT</a>
-        </nav>
-    </div>
-    <div class="flex items-center gap-3">
-        <span class="font-mono text-[10px] text-on-surface-variant" id="clock"></span>
-        <div class="h-6 w-6 bg-surface-container-highest border border-outline overflow-hidden">
-            <div class="w-full h-full bg-gradient-to-br from-primary-fixed-dim/30 to-transparent flex items-center justify-center text-[10px] text-primary-fixed-dim font-mono">BR</div>
-        </div>
-    </div>
+<header style="position:fixed;top:0;width:100%;height:48px;background:rgba(17,19,24,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--outline-variant);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:50">
+<div style="display:flex;align-items:center;gap:16px">
+<span style="font-family:'Geist',sans-serif;font-size:18px;font-weight:700;color:var(--primary);text-shadow:0 0 8px rgba(0,230,57,.5);letter-spacing:-.02em">CYBER-SENTINEL OS</span>
+<nav style="display:flex;gap:4px;margin-left:16px">
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('about')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">DASHBOARD</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('experience')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">SCANNER</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('projects')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">ENCRYPTION</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('skills')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">TERMINAL</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('contact')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">SETTINGS</a>
+</nav>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)" id="clock"></span>
+<div style="width:24px;height:24px;background:var(--surface-container-highest);border:1px solid var(--outline);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--primary)">BR</div>
+</div>
 </header>
 
 <!-- Sidebar -->
-<aside class="hidden md:flex flex-col fixed left-4 top-20 bottom-4 w-60 bg-surface/85 backdrop-blur-2xl border border-outline-variant z-40">
-    <div class="p-4 border-b border-outline-variant">
-        <div class="flex items-center gap-3">
-            <div class="h-10 w-10 bg-black border border-primary-fixed-dim overflow-hidden relative">
-                <div class="absolute inset-0 scanlines opacity-50 z-10"></div>
-                <div class="w-full h-full bg-gradient-to-br from-primary-fixed-dim/20 to-transparent flex items-center justify-center text-lg">👤</div>
-            </div>
-            <div>
-                <div class="font-mono text-[11px] text-primary-fixed-dim tracking-wider">ROOT_USER</div>
-                <div class="font-mono text-[10px] text-on-surface-variant opacity-70">ID: 0xB415R</div>
-            </div>
-        </div>
-    </div>
-    <nav class="flex-1 py-2">
-        <a class="nav-item font-mono text-[12px] text-on-surface-variant px-4 py-3 flex items-center gap-3 cursor-pointer border-l-4 border-transparent active" data-section="about" onclick="switchSection('about')">
-            <span class="text-[16px]">👤</span> WHOAMI
-        </a>
-        <a class="nav-item font-mono text-[12px] text-on-surface-variant px-4 py-3 flex items-center gap-3 cursor-pointer border-l-4 border-transparent" data-section="experience" onclick="switchSection('experience')">
-            <span class="text-[16px]">💼</span> EXPERIENCE
-        </a>
-        <a class="nav-item font-mono text-[12px] text-on-surface-variant px-4 py-3 flex items-center gap-3 cursor-pointer border-l-4 border-transparent" data-section="projects" onclick="switchSection('projects')">
-            <span class="text-[16px]">🚀</span> PROJECTS
-        </a>
-        <a class="nav-item font-mono text-[12px] text-on-surface-variant px-4 py-3 flex items-center gap-3 cursor-pointer border-l-4 border-transparent" data-section="skills" onclick="switchSection('skills')">
-            <span class="text-[16px]">⚙️</span> SKILLS
-        </a>
-        <a class="nav-item font-mono text-[12px] text-on-surface-variant px-4 py-3 flex items-center gap-3 cursor-pointer border-l-4 border-transparent" data-section="certs" onclick="switchSection('certs')">
-            <span class="text-[16px]">🏆</span> AWARDS
-        </a>
-        <a class="nav-item font-mono text-[12px] text-on-surface-variant px-4 py-3 flex items-center gap-3 cursor-pointer border-l-4 border-transparent" data-section="contact" onclick="switchSection('contact')">
-            <span class="text-[16px]">📡</span> CONTACT
-        </a>
-    </nav>
-    <div class="p-4 border-t border-outline-variant">
-        <button class="w-full bg-primary-fixed-dim/10 border border-primary-fixed-dim text-primary-fixed-dim font-mono text-[11px] py-2 hover:bg-primary-fixed-dim hover:text-surface transition-all shadow-[0_0_10px_rgba(0,230,57,0.2)] hover:shadow-[0_0_15px_rgba(0,230,57,0.6)]">
-            EXECUTE SCAN
-        </button>
-    </div>
+<aside style="position:fixed;left:16px;top:80px;bottom:16px;width:240px;background:rgba(17,19,24,.85);backdrop-filter:blur(20px);border:1px solid var(--outline-variant);display:flex;flex-direction:column;z-index:40;border-radius:4px" id="sidebar">
+<div style="padding:16px;border-bottom:1px solid var(--outline-variant)">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="width:40px;height:40px;background:#000;border:1px solid var(--primary);overflow:hidden;position:relative;border-radius:2px">
+<div style="position:absolute;inset:0;opacity:.5" class="scanlines"></div>
+<div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,230,57,.2),transparent);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+</div>
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em">ROOT_USER</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);opacity:.7">ID: 0xB415R</div>
+</div>
+</div>
+</div>
+<nav style="flex:1;padding:8px 0">
+<a class="nav-item active" data-section="about" onclick="switchSection('about')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="font-size:16px">👤</span> DASHBOARD
+</a>
+<a class="nav-item" data-section="experience" onclick="switchSection('experience')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="font-size:16px">💼</span> SCANNER
+</a>
+<a class="nav-item" data-section="projects" onclick="switchSection('projects')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="font-size:16px">🚀</span> ENCRYPTION
+</a>
+<a class="nav-item" data-section="skills" onclick="switchSection('skills')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="font-size:16px">⚙️</span> TERMINAL
+</a>
+<a class="nav-item" data-section="certs" onclick="switchSection('certs')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="font-size:16px">🏆</span> AWARDS
+</a>
+<a class="nav-item" data-section="contact" onclick="switchSection('contact')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
+<span style="font-size:16px">📡</span> SETTINGS
+</a>
+</nav>
+<div style="padding:16px;border-top:1px solid var(--outline-variant)">
+<button onclick="executeScan()" style="width:100%;background:rgba(0,230,57,.1);border:1px solid var(--primary);color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:11px;padding:8px;cursor:pointer;letter-spacing:.1em;transition:all .3s;box-shadow:0 0 10px rgba(0,230,57,.2)" onmouseover="this.style.background='var(--primary)';this.style.color='var(--bg)';this.style.boxShadow='0 0 15px rgba(0,230,57,.6)'" onmouseout="this.style.background='rgba(0,230,57,.1)';this.style.color='var(--primary)';this.style.boxShadow='0 0 10px rgba(0,230,57,.2)'">
+EXECUTE SCAN
+</button>
+</div>
 </aside>
 
 <!-- Main Content -->
-<main class="mt-16 md:ml-64 md:mr-4 md:mb-4 p-4 relative z-10">
-    <!-- Status Ticker -->
-    <div class="w-full border border-outline bg-surface-container-high/80 backdrop-blur-md h-8 flex items-center px-4 overflow-hidden relative mb-4">
-        <div class="absolute inset-0 scanlines opacity-20"></div>
-        <div class="flex items-center gap-4 z-10 shrink-0">
-            <span class="font-mono text-[10px] text-error bg-error/10 px-2 py-0.5 border border-error/50 animate-pulse">[ SECURITY: OMEGA ]</span>
-            <span class="font-mono text-[10px] text-primary-fixed-dim border-l border-outline pl-4">[ UPLINK: ACTIVE ]</span>
-        </div>
-        <div class="flex-1 overflow-hidden ml-4 z-10">
-            <div class="whitespace-nowrap animate-scroll font-mono text-[10px] text-on-surface-variant">
-                <span class="text-primary-fixed-dim">&gt;</span> SYS_INIT SECURE BOOT VERIFIED ... <span class="text-error">&gt;</span> PORTFOLIO MODULES LOADED ... <span class="text-primary-fixed-dim">&gt;</span> FIREWALL RULES ACTIVE ... <span class="text-on-surface">&gt;</span> WELCOME, BALAJISRINATH ...
-            </div>
-        </div>
-    </div>
+<main style="margin-top:64px;margin-left:272px;margin-right:16px;margin-bottom:16px;padding:16px;position:relative;z-index:10">
+<!-- Status Ticker -->
+<div style="width:100%;border:1px solid var(--outline);background:rgba(40,42,46,.8);backdrop-filter:blur(12px);height:32px;display:flex;align-items:center;padding:0 16px;overflow:hidden;position:relative;margin-bottom:16px">
+<div style="position:absolute;inset:0;opacity:.2" class="scanlines"></div>
+<div style="display:flex;align-items:center;gap:16px;z-index:10;flex-shrink:0">
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--error);background:rgba(255,180,171,.1);padding:2px 8px;border:1px solid rgba(255,180,171,.5);animation:pulse-green 2s infinite">[ SECURITY: OMEGA ]</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);border-left:1px solid var(--outline);padding-left:16px">[ UPLINK: ACTIVE ]</span>
+</div>
+<div style="flex:1;overflow:hidden;margin-left:16px;z-index:10">
+<div class="animate-scroll" style="white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)">
+<span style="color:var(--primary)">&gt;</span> SYS_INIT SECURE BOOT VERIFIED ... <span style="color:var(--error)">&gt;</span> PORTFOLIO MODULES LOADED ... <span style="color:var(--primary)">&gt;</span> FIREWALL RULES ACTIVE ... <span style="color:var(--on-surface)">&gt;</span> WELCOME, BALAJISRINATH ...
+</div>
+</div>
+</div>
 
-    <!-- ABOUT SECTION -->
-    <div class="section active" id="section-about">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-            <!-- Left Panel -->
-            <div class="col-span-1 md:col-span-4 flex flex-col gap-4">
-                <!-- Tactical Status -->
-                <div class="bg-black/60 border border-outline-variant p-4 backdrop-blur-2xl relative">
-                    <div class="corner-bracket corner-tl"></div>
-                    <div class="corner-bracket corner-br"></div>
-                    <h2 class="font-mono text-[11px] text-on-surface-variant tracking-wider mb-3 border-b border-outline/50 pb-2">TACTICAL STATUS</h2>
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-mono text-lg text-primary-fixed-dim drop-shadow-[0_0_5px_rgba(0,230,57,0.5)]">ACTIVE</span>
-                        <span class="text-primary-fixed-dim pulse-green">●</span>
-                    </div>
-                    <div class="w-full bg-surface-container-high h-1 mt-2">
-                        <div class="bg-primary-fixed-dim h-full w-[92%] shadow-[0_0_8px_rgba(0,230,57,0.5)]"></div>
-                    </div>
-                    <div class="flex justify-between font-mono text-[9px] text-on-surface-variant mt-1">
-                        <span>SYSTEM CAPACITY</span>
-                        <span>92%</span>
-                    </div>
-                </div>
-                
-                <!-- Profile Card -->
-                <div class="flex-1 bg-surface-container-lowest/80 border border-outline-variant backdrop-blur-xl p-4 flex flex-col relative overflow-hidden">
-                    <div class="absolute inset-0 scanlines opacity-10"></div>
-                    <div class="corner-bracket corner-tl"></div>
-                    <div class="corner-bracket corner-tr"></div>
-                    <div class="corner-bracket corner-bl"></div>
-                    <div class="corner-bracket corner-br"></div>
-                    <h2 class="font-mono text-[11px] text-primary-fixed-dim mb-3 z-10 tracking-wider">IDENTITY_GEN</h2>
-                    <div class="relative w-full aspect-square bg-black border border-outline mb-4 z-10 overflow-hidden">
-                        <div class="w-full h-full bg-gradient-to-br from-primary-fixed-dim/10 to-transparent flex items-center justify-center text-6xl float">💻</div>
-                        <div class="absolute inset-0 border border-primary-fixed-dim/20 pointer-events-none" style="background-image: linear-gradient(#00e639 1px, transparent 1px), linear-gradient(90deg, #00e639 1px, transparent 1px); background-size: 20px 20px; opacity: 0.1;"></div>
-                        <div class="absolute top-0 left-0 w-full h-[2px] bg-primary-fixed-dim shadow-[0_0_10px_#00e639] scan-line"></div>
-                    </div>
-                    <div class="font-mono text-[11px] space-y-2 z-10 mt-auto">
-                        <div class="flex justify-between border-b border-outline/30 pb-1">
-                            <span class="text-on-surface-variant">SUBJECT:</span>
-                            <span class="text-on-surface">BALAJISRINATH R</span>
-                        </div>
-                        <div class="flex justify-between border-b border-outline/30 pb-1">
-                            <span class="text-on-surface-variant">ROLE:</span>
-                            <span class="text-primary-fixed-dim">FULL-STACK DEV</span>
-                        </div>
-                        <div class="flex justify-between border-b border-outline/30 pb-1">
-                            <span class="text-on-surface-variant">CLEARANCE:</span>
-                            <span class="text-primary-fixed-dim">OMEGA</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Center Panel -->
-            <div class="col-span-1 md:col-span-5 bg-[#050608]/90 border border-primary-fixed-dim/40 backdrop-blur-3xl relative overflow-hidden flex flex-col shadow-[0_0_30px_rgba(0,0,0,0.8)_inset,0_0_15px_rgba(0,230,57,0.1)]">
-                <div class="corner-bracket corner-tl z-20"></div>
-                <div class="corner-bracket corner-tr z-20"></div>
-                <div class="corner-bracket corner-bl z-20"></div>
-                <div class="corner-bracket corner-br z-20"></div>
-                <div class="absolute top-4 left-0 w-full flex justify-center z-20 pointer-events-none">
-                    <span class="bg-black/80 text-error font-mono text-[11px] px-3 py-1 border border-error/50 tracking-[0.2em] glitch-hover">PROFILE VISUALIZER</span>
-                </div>
-                <div class="absolute inset-0 scanlines opacity-30 z-10 pointer-events-none"></div>
-                
-                <div class="flex-1 p-6 pt-16 z-10">
-                    <h1 class="font-headline text-3xl font-bold text-on-surface mb-2">Balajisrinath R</h1>
-                    <div class="font-mono text-[12px] text-primary-fixed-dim mb-4 typing-effect">$ Full-Stack Developer | Backend and Cloud</div>
-                    <p class="font-body text-[14px] text-on-surface-variant leading-relaxed mb-6">
-                        Full-stack developer with internship experience in Python, Go, and React.js. Built production-grade systems with REST APIs, Docker, and cloud deployments. Certified Scrum Master.
-                    </p>
-                    <div class="grid grid-cols-2 gap-3 mb-6">
-                        <div class="bg-surface-container/50 border border-outline-variant p-3 text-center card-hover">
-                            <div class="font-mono text-2xl text-primary-fixed-dim mb-1" data-target="3">0</div>
-                            <div class="font-mono text-[9px] text-on-surface-variant tracking-wider">INTERNSHIPS</div>
-                        </div>
-                        <div class="bg-surface-container/50 border border-outline-variant p-3 text-center card-hover">
-                            <div class="font-mono text-2xl text-primary-fixed-dim mb-1" data-target="4">0</div>
-                            <div class="font-mono text-[9px] text-on-surface-variant tracking-wider">PROJECTS</div>
-                        </div>
-                        <div class="bg-surface-container/50 border border-outline-variant p-3 text-center card-hover">
-                            <div class="font-mono text-2xl text-primary-fixed-dim mb-1">8.12</div>
-                            <div class="font-mono text-[9px] text-on-surface-variant tracking-wider">CGPA</div>
-                        </div>
-                        <div class="bg-surface-container/50 border border-outline-variant p-3 text-center card-hover">
-                            <div class="font-mono text-2xl text-primary-fixed-dim mb-1" data-target="5">0</div>
-                            <div class="font-mono text-[9px] text-on-surface-variant tracking-wider">AWARDS</div>
-                        </div>
-                    </div>
-                    <!-- Education -->
-                    <div class="bg-surface-container/30 border border-outline-variant p-4">
-                        <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider mb-2">EDUCATION</div>
-                        <div class="font-headline text-[14px] text-on-surface font-semibold">M.Sc Software Systems</div>
-                        <div class="font-mono text-[11px] text-on-surface-variant">Kongu Engineering College | 2021-2026</div>
-                        <div class="font-mono text-[11px] text-primary-fixed-dim mt-1">CGPA: 8.12 / 10</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right Panel -->
-            <div class="col-span-1 md:col-span-3 bg-black/80 border border-outline-variant backdrop-blur-xl flex flex-col overflow-hidden relative">
-                <div class="bg-surface-container-highest/50 border-b border-outline-variant px-3 py-2 flex items-center justify-between z-10">
-                    <span class="font-mono text-[11px] text-on-surface tracking-wider flex items-center gap-2">
-                        <span class="text-primary-fixed-dim">📡</span> SYSTEM LOG
-                    </span>
-                    <span class="flex h-2 w-2 relative">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed-dim opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed-dim"></span>
-                    </span>
-                </div>
-                <div class="flex-1 overflow-y-auto p-3 font-mono text-[10px] leading-relaxed text-on-surface-variant space-y-1">
-                    <div class="opacity-50">INITIALIZING PROFILE...</div>
-                    <div class="opacity-50">LOADING USER DATA... OK</div>
-                    <div class="text-primary-fixed-dim">&gt; NAME: <span class="text-on-surface">BALAJISRINATH R</span></div>
-                    <div class="text-primary-fixed-dim">&gt; EMAIL: <span class="text-on-surface">srinathrbalaji03@gmail.com</span></div>
-                    <div class="text-primary-fixed-dim">&gt; PHONE: <span class="text-on-surface">+91 95975 40378</span></div>
-                    <div class="text-primary-fixed-dim">&gt; LOC: <span class="text-on-surface">Salem, Tamil Nadu</span></div>
-                    <div class="text-primary-fixed-dim">&gt; STATUS: <span class="text-primary-fixed-dim">OPEN TO OPPORTUNITIES</span></div>
-                    <div class="border-t border-outline/30 my-2"></div>
-                    <div class="opacity-50">LINKS:</div>
-                    <div class="text-primary-fixed-dim">&gt; <a href="https://github.com/RBalajisrinath" target="_blank" class="text-secondary hover:text-primary-fixed-dim">GITHUB</a></div>
-                    <div class="text-primary-fixed-dim">&gt; <a href="https://linkedin.com/in/balajisrinathr" target="_blank" class="text-secondary hover:text-primary-fixed-dim">LINKEDIN</a></div>
-                    <div class="border-t border-outline/30 my-2"></div>
-                    <div class="opacity-50">SKILLS LOADED:</div>
-                    <div class="text-primary-fixed-dim">&gt; Python, Go, React.js</div>
-                    <div class="text-primary-fixed-dim">&gt; Node.js, Docker, Linux</div>
-                    <div class="opacity-50 mt-2 cursor-blink">AWAITING INPUT_</div>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none z-20"></div>
-            </div>
-        </div>
-    </div>
+<!-- ABOUT SECTION -->
+<div class="section active" id="section-about">
+<div style="display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:16px">
+<!-- Left Panel -->
+<div style="display:flex;flex-direction:column;gap:16px">
+<!-- Tactical Status -->
+<div style="background:rgba(0,0,0,.6);border:1px solid var(--outline-variant);padding:16px;backdrop-filter:blur(20px);position:relative">
+<div class="corner-bracket corner-tl"></div>
+<div class="corner-bracket corner-br"></div>
+<h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;margin-bottom:12px;border-bottom:1px solid rgba(132,150,126,.5);padding-bottom:8px">TACTICAL STATUS</h2>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+<span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--primary);text-shadow:0 0 5px rgba(0,230,57,.5)">ACTIVE</span>
+<span style="color:var(--primary)" class="pulse-green">●</span>
+</div>
+<div style="width:100%;background:var(--surface-container-high);height:4px;margin-top:12px">
+<div style="background:var(--primary);height:100%;width:92%;box-shadow:0 0 8px rgba(0,230,57,.5)"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant);margin-top:4px">
+<span>SYSTEM CAPACITY</span>
+<span>92%</span>
+</div>
+</div>
+<!-- Profile Card -->
+<div style="flex:1;background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);backdrop-filter:blur(20px);padding:16px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+<div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
+<div class="corner-bracket corner-tl"></div>
+<div class="corner-bracket corner-tr"></div>
+<div class="corner-bracket corner-bl"></div>
+<div class="corner-bracket corner-br"></div>
+<h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);margin-bottom:12px;z-index:10;letter-spacing:.1em">🔑 IDENTITY_GEN</h2>
+<div style="position:relative;width:100%;aspect-ratio:1;background:#000;border:1px solid var(--outline);margin-bottom:16px;z-index:10;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,230,57,.1),transparent);display:flex;align-items:center;justify-content:center;font-size:60px" class="float">💻</div>
+<div style="position:absolute;inset:0;border:1px solid rgba(0,230,57,.2);pointer-events:none;background-image:linear-gradient(var(--primary) 1px,transparent 1px),linear-gradient(90deg,var(--primary) 1px,transparent 1px);background-size:20px 20px;opacity:.1"></div>
+<div style="position:absolute;top:0;left:0;width:100%;height:2px;background:var(--primary);box-shadow:0 0 10px #00e639" class="scan-line"></div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;z-index:10;margin-top:auto">
+<div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(132,150,126,.3);padding:4px 0">
+<span style="color:var(--on-surface-variant)">SUBJECT:</span>
+<span style="color:var(--on-surface)">BALAJISRINATH R</span>
+</div>
+<div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(132,150,126,.3);padding:4px 0">
+<span style="color:var(--on-surface-variant)">ROLE:</span>
+<span style="color:var(--primary)">FULL-STACK DEV</span>
+</div>
+<div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(132,150,126,.3);padding:4px 0">
+<span style="color:var(--on-surface-variant)">CLEARANCE:</span>
+<span style="color:var(--primary)">OMEGA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Panel -->
+<div style="background:rgba(5,6,8,.9);border:1px solid rgba(0,230,57,.4);backdrop-filter:blur(30px);position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 30px rgba(0,0,0,.8) inset,0 0 15px rgba(0,230,57,.1)">
+<div class="corner-bracket corner-tl" style="z-index:20"></div>
+<div class="corner-bracket corner-tr" style="z-index:20"></div>
+<div class="corner-bracket corner-bl" style="z-index:20"></div>
+<div class="corner-bracket corner-br" style="z-index:20"></div>
+<div style="position:absolute;top:16px;left:0;width:100%;display:flex;justify-content:center;z-index:20;pointer-events:none">
+<span style="background:rgba(0,0,0,.8);color:var(--error);font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 12px;border:1px solid rgba(255,180,171,.5);letter-spacing:.2em" class="glitch-hover">PROFILE VISUALIZER</span>
+</div>
+<div style="position:absolute;inset:0;opacity:.3;z-index:10;pointer-events:none" class="scanlines"></div>
+<!-- Radar -->
+<div style="flex:1;padding:24px;padding-top:60px;z-index:10">
+<h1 style="font-family:'Geist',sans-serif;font-size:32px;font-weight:700;color:var(--on-surface);margin-bottom:8px">Balajisrinath R</h1>
+<div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);margin-bottom:16px" class="typing-effect">$ Full-Stack Developer | Backend · Cloud · AI</div>
+<p style="font-family:'Geist',sans-serif;font-size:14px;color:var(--on-surface-variant);line-height:1.6;margin-bottom:24px">
+Software engineer with 9+ months of internship experience in backend systems, REST APIs, Python, and Go, with a strong foundation in Linux, containerisation (Docker), and distributed systems concepts. Built and shipped production-grade systems involving databases, authentication, and cloud deployments. Certified Scrum Master with a growth mindset and strong problem-solving skills.
+</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+<div style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:12px;text-align:center" class="card-hover">
+<div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--primary);margin-bottom:4px" class="counter" data-target="3">0</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant);letter-spacing:.1em">INTERNSHIPS</div>
+</div>
+<div style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:12px;text-align:center" class="card-hover">
+<div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--primary);margin-bottom:4px" class="counter" data-target="4">0</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant);letter-spacing:.1em">PROJECTS</div>
+</div>
+<div style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:12px;text-align:center" class="card-hover">
+<div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--primary);margin-bottom:4px">8.12</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant);letter-spacing:.1em">CGPA</div>
+</div>
+<div style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:12px;text-align:center" class="card-hover">
+<div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--primary);margin-bottom:4px" class="counter" data-target="5">0</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant);letter-spacing:.1em">AWARDS</div>
+</div>
+</div>
+<div style="background:rgba(30,32,36,.3);border:1px solid var(--outline-variant);padding:16px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em;margin-bottom:8px">EDUCATION</div>
+<div style="font-family:'Geist',sans-serif;font-size:14px;color:var(--on-surface);font-weight:600">M.Sc Software Systems</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant)">Integrated 5-Year Program</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant)">Kongu Engineering College | 2021-2026</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);margin-top:4px">CGPA: 8.12 / 10</div>
+</div>
+</div>
+</div>
+<!-- Right Panel -->
+<div style="background:rgba(0,0,0,.8);border:1px solid var(--outline-variant);backdrop-filter:blur(20px);display:flex;flex-direction:column;overflow:hidden;position:relative">
+<div style="background:rgba(51,53,57,.5);border-bottom:1px solid var(--outline-variant);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;z-index:10;flex-shrink:0">
+<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface);letter-spacing:.1em;display:flex;align-items:center;gap:8px">
+<span style="color:var(--primary)">📡</span> GLOBAL INTERCEPT
+</span>
+<span style="display:flex;height:8px;width:8px;position:relative">
+<span style="animation:pulse-green 2s infinite;position:absolute;display:inline-flex;height:100%;width:100%;border-radius:50%;background:var(--primary);opacity:.75"></span>
+<span style="position:relative;display:inline-flex;border-radius:50%;height:8px;width:8px;background:var(--primary)"></span>
+</span>
+</div>
+<div style="flex:1;overflow-y:auto;padding:12px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.6;color:var(--on-surface-variant);position:relative;z-index:10" id="log-feed">
+<div style="opacity:.5">INITIALIZING PROFILE...</div>
+<div style="opacity:.5">LOADING USER DATA... OK</div>
+<div style="color:var(--primary)">&gt; NAME: <span style="color:var(--on-surface)">BALAJISRINATH R</span></div>
+<div style="color:var(--primary)">&gt; EMAIL: <span style="color:var(--on-surface)">srinathrbalaji03@gmail.com</span></div>
+<div style="color:var(--primary)">&gt; PHONE: <span style="color:var(--on-surface)">+91 95975 40378</span></div>
+<div style="color:var(--primary)">&gt; LOC: <span style="color:var(--on-surface)">Salem, Tamil Nadu</span></div>
+<div style="color:var(--primary)">&gt; STATUS: <span style="color:var(--primary)">OPEN TO OPPORTUNITIES</span></div>
+<div style="border-top:1px solid rgba(132,150,126,.3);margin:8px 0"></div>
+<div style="opacity:.5">LINKS:</div>
+<div style="color:var(--primary)">&gt; <a href="https://github.com/RBalajisrinath" target="_blank" style="color:var(--secondary);text-decoration:none">GITHUB</a></div>
+<div style="color:var(--primary)">&gt; <a href="https://linkedin.com/in/balajisrinathr" target="_blank" style="color:var(--secondary);text-decoration:none">LINKEDIN</a></div>
+<div style="border-top:1px solid rgba(132,150,126,.3);margin:8px 0"></div>
+<div style="opacity:.5">SKILLS LOADED:</div>
+<div style="color:var(--primary)">&gt; Python, Java, Go, C</div>
+<div style="color:var(--primary)">&gt; React.js, Next.js, Node.js</div>
+<div style="color:var(--primary)">&gt; Docker, Kubernetes, Linux</div>
+<div style="color:var(--primary)">&gt; MongoDB, MySQL, SQL</div>
+<div style="color:var(--primary)">&gt; LangChain, OpenAI API</div>
+<div style="opacity:.5;margin-top:8px" class="cursor-blink">AWAITING INPUT_</div>
+</div>
+<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent,transparent);pointer-events:none;z-index:20"></div>
+</div>
+</div>
+</div>
 
-    <!-- EXPERIENCE SECTION -->
-    <div class="section" id="section-experience">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative card-hover">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="flex items-center justify-between mb-3">
-                    <div>
-                        <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">INFOSYS SPRINGBOARD</div>
-                        <div class="font-headline text-[15px] text-on-surface font-semibold">Python Developer Intern</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="font-mono text-[10px] text-on-surface-variant">Nov 2024 - Jan 2025</div>
-                        <div class="font-mono text-[9px] text-on-surface-variant">Remote</div>
-                    </div>
-                </div>
-                <ul class="font-mono text-[11px] text-on-surface-variant space-y-2">
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Built ML-powered detection system using OpenCV</li>
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Restructured backend into clean REST API modules</li>
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Served as Scrum Master for distributed team</li>
-                </ul>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative card-hover">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="flex items-center justify-between mb-3">
-                    <div>
-                        <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">SAYVAI SOFTWARE</div>
-                        <div class="font-headline text-[15px] text-on-surface font-semibold">Software Developer Intern</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="font-mono text-[10px] text-on-surface-variant">Jun 2024 - Nov 2024</div>
-                        <div class="font-mono text-[9px] text-on-surface-variant">Coimbatore</div>
-                    </div>
-                </div>
-                <ul class="font-mono text-[11px] text-on-surface-variant space-y-2">
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Built React.js component library for 3+ projects</li>
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Implemented JWT auth and RESTful APIs</li>
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Used OpenAI API and GitHub Copilot</li>
-                </ul>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative card-hover">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="flex items-center justify-between mb-3">
-                    <div>
-                        <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">WEBVERSE DIGITAL</div>
-                        <div class="font-headline text-[15px] text-on-surface font-semibold">Full-Stack Developer Intern</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="font-mono text-[10px] text-on-surface-variant">May 2024 - Jul 2024</div>
-                        <div class="font-mono text-[9px] text-on-surface-variant">Remote</div>
-                    </div>
-                </div>
-                <ul class="font-mono text-[11px] text-on-surface-variant space-y-2">
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Built REST API services and analytics pipelines</li>
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Optimised service-layer performance</li>
-                </ul>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative card-hover">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="flex items-center justify-between mb-3">
-                    <div>
-                        <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">SAIL (STEEL AUTHORITY)</div>
-                        <div class="font-headline text-[15px] text-on-surface font-semibold">Enterprise IT Intern</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="font-mono text-[10px] text-on-surface-variant">Dec 2023 - Jan 2024</div>
-                        <div class="font-mono text-[9px] text-on-surface-variant">Salem</div>
-                    </div>
-                </div>
-                <ul class="font-mono text-[11px] text-on-surface-variant space-y-2">
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Enterprise app development using ASP.NET and MySQL</li>
-                    <li class="flex gap-2"><span class="text-primary-fixed-dim">▸</span> Worked in Linux-based production environment</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<!-- EXPERIENCE SECTION -->
+<div class="section" id="section-experience">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative" class="card-hover">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:12px">
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">INFOSYS SPRINGBOARD</div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Python Developer Intern</div>
+</div>
+<div style="text-align:right">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)">Nov 2024 - Jan 2025</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Remote</div>
+</div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant)">
+<div style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--primary)">▸</span> Built ML-powered detection system using OpenCV</div>
+<div style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--primary)">▸</span> Restructured backend into clean REST API modules</div>
+<div style="display:flex;gap:8px"><span style="color:var(--primary)">▸</span> Served as Scrum Master for distributed team</div>
+</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative" class="card-hover">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:12px">
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">SAYVAI SOFTWARE</div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Software Developer Intern</div>
+</div>
+<div style="text-align:right">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)">Jun 2024 - Nov 2024</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Coimbatore</div>
+</div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant)">
+<div style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--primary)">▸</span> Built React.js component library for 3+ projects</div>
+<div style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--primary)">▸</span> Implemented JWT auth and RESTful APIs</div>
+<div style="display:flex;gap:8px"><span style="color:var(--primary)">▸</span> Used OpenAI API and GitHub Copilot</div>
+</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative" class="card-hover">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:12px">
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">WEBVERSE DIGITAL</div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Full-Stack Developer Intern</div>
+</div>
+<div style="text-align:right">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)">May 2024 - Jul 2024</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Remote</div>
+</div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant)">
+<div style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--primary)">▸</span> Built REST API services and analytics pipelines</div>
+<div style="display:flex;gap:8px"><span style="color:var(--primary)">▸</span> Optimised service-layer performance</div>
+</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative" class="card-hover">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:12px">
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">SAIL (STEEL AUTHORITY)</div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Enterprise IT Intern</div>
+</div>
+<div style="text-align:right">
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)">Dec 2023 - Jan 2024</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Salem</div>
+</div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant)">
+<div style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--primary)">▸</span> Enterprise app development using ASP.NET and MySQL</div>
+<div style="display:flex;gap:8px"><span style="color:var(--primary)">▸</span> Worked in Linux-based production environment</div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- PROJECTS SECTION -->
-    <div class="section" id="section-projects">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-surface-container-lowest/80 border border-outline-variant relative overflow-hidden card-hover">
-                <div class="corner-bracket corner-tl z-10"></div>
-                <div class="corner-bracket corner-tr z-10"></div>
-                <div class="absolute inset-0 scanlines opacity-10"></div>
-                <div class="p-4 relative z-10">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="h-10 w-10 bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center text-xl">🛒</div>
-                        <div>
-                            <div class="font-headline text-[15px] text-on-surface font-semibold">Ecofash</div>
-                            <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">REAL-TIME E-COMMERCE</div>
-                        </div>
-                    </div>
-                    <p class="font-mono text-[11px] text-on-surface-variant mb-3">Product pages with Next.js, real-time PostgreSQL via Supabase, secure auth, deployed on Vercel with 100% uptime.</p>
-                    <div class="flex flex-wrap gap-1">
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Next.js</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Supabase</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">PostgreSQL</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Vercel</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant relative overflow-hidden card-hover">
-                <div class="corner-bracket corner-tl z-10"></div>
-                <div class="corner-bracket corner-tr z-10"></div>
-                <div class="absolute inset-0 scanlines opacity-10"></div>
-                <div class="p-4 relative z-10">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="h-10 w-10 bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center text-xl">🏨</div>
-                        <div>
-                            <div class="font-headline text-[15px] text-on-surface font-semibold">Aishwaryam-INN</div>
-                            <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">HOTEL RESERVATION SYSTEM</div>
-                        </div>
-                    </div>
-                    <p class="font-mono text-[11px] text-on-surface-variant mb-3">Complete booking flow with admin panel, room availability calendar, analytics dashboard, MySQL with transaction isolation.</p>
-                    <div class="flex flex-wrap gap-1">
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">React.js</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Node.js</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Express</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">MySQL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant relative overflow-hidden card-hover">
-                <div class="corner-bracket corner-tl z-10"></div>
-                <div class="corner-bracket corner-tr z-10"></div>
-                <div class="absolute inset-0 scanlines opacity-10"></div>
-                <div class="p-4 relative z-10">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="h-10 w-10 bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center text-xl">🚗</div>
-                        <div>
-                            <div class="font-headline text-[15px] text-on-surface font-semibold">Driver Drowsiness Alert</div>
-                            <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">IOT + COMPUTER VISION</div>
-                        </div>
-                    </div>
-                    <p class="font-mono text-[11px] text-on-surface-variant mb-3">OpenCV eye tracking, IoT buzzer triggers, GPS emergency alerts. Won 1st Prize at Ideathon.</p>
-                    <div class="flex flex-wrap gap-1">
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Python</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">OpenCV</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">IoT</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Raspberry Pi</span>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant relative overflow-hidden card-hover">
-                <div class="corner-bracket corner-tl z-10"></div>
-                <div class="corner-bracket corner-tr z-10"></div>
-                <div class="absolute inset-0 scanlines opacity-10"></div>
-                <div class="p-4 relative z-10">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="h-10 w-10 bg-primary-fixed-dim/10 border border-primary-fixed-dim/30 flex items-center justify-center text-xl">🔒</div>
-                        <div>
-                            <div class="font-headline text-[15px] text-on-surface font-semibold">Phishing URL Detection</div>
-                            <div class="font-mono text-[10px] text-primary-fixed-dim tracking-wider">ML SECURITY</div>
-                        </div>
-                    </div>
-                    <p class="font-mono text-[11px] text-on-surface-variant mb-3">XGBoost classifier with 96%+ accuracy for phishing URL detection using feature engineering.</p>
-                    <div class="flex flex-wrap gap-1">
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Python</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">XGBoost</span>
-                        <span class="status-chip text-secondary border-secondary/30 bg-secondary/10">Scikit-learn</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- PROJECTS SECTION -->
+<div class="section" id="section-projects">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);position:relative;overflow:hidden" class="card-hover">
+<div class="corner-bracket corner-tl" style="z-index:10"></div><div class="corner-bracket corner-tr" style="z-index:10"></div>
+<div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
+<div style="padding:16px;position:relative;z-index:10">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="width:40px;height:40px;background:rgba(0,230,57,.1);border:1px solid rgba(0,230,57,.3);display:flex;align-items:center;justify-content:center;font-size:20px">🛒</div>
+<div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Ecofash</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">REAL-TIME E-COMMERCE</div>
+</div>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);margin-bottom:12px">Product pages with Next.js, real-time PostgreSQL via Supabase, secure auth, deployed on Vercel with 100% uptime.</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px">
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Next.js</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Supabase</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">PostgreSQL</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Vercel</span>
+</div>
+</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);position:relative;overflow:hidden" class="card-hover">
+<div class="corner-bracket corner-tl" style="z-index:10"></div><div class="corner-bracket corner-tr" style="z-index:10"></div>
+<div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
+<div style="padding:16px;position:relative;z-index:10">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="width:40px;height:40px;background:rgba(0,230,57,.1);border:1px solid rgba(0,230,57,.3);display:flex;align-items:center;justify-content:center;font-size:20px">🏨</div>
+<div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Aishwaryam-INN</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">HOTEL RESERVATION SYSTEM</div>
+</div>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);margin-bottom:12px">Complete booking flow with admin panel, room availability calendar, analytics dashboard, MySQL with transaction isolation.</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px">
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">React.js</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Node.js</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Express</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">MySQL</span>
+</div>
+</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);position:relative;overflow:hidden" class="card-hover">
+<div class="corner-bracket corner-tl" style="z-index:10"></div><div class="corner-bracket corner-tr" style="z-index:10"></div>
+<div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
+<div style="padding:16px;position:relative;z-index:10">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="width:40px;height:40px;background:rgba(0,230,57,.1);border:1px solid rgba(0,230,57,.3);display:flex;align-items:center;justify-content:center;font-size:20px">🚗</div>
+<div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Driver Drowsiness Alert</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">IOT + COMPUTER VISION</div>
+</div>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);margin-bottom:12px">OpenCV eye tracking, IoT buzzer triggers, GPS emergency alerts. Won 1st Prize at Ideathon.</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px">
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Python</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">OpenCV</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">IoT</span>
+</div>
+</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);position:relative;overflow:hidden" class="card-hover">
+<div class="corner-bracket corner-tl" style="z-index:10"></div><div class="corner-bracket corner-tr" style="z-index:10"></div>
+<div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
+<div style="padding:16px;position:relative;z-index:10">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+<div style="width:40px;height:40px;background:rgba(0,230,57,.1);border:1px solid rgba(0,230,57,.3);display:flex;align-items:center;justify-content:center;font-size:20px">🔒</div>
+<div>
+<div style="font-family:'Geist',sans-serif;font-size:15px;color:var(--on-surface);font-weight:600">Phishing URL Detection</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);letter-spacing:.1em">ML SECURITY</div>
+</div>
+</div>
+<p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);margin-bottom:12px">XGBoost classifier with 96%+ accuracy for phishing URL detection using feature engineering.</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px">
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Python</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">XGBoost</span>
+<span class="status-chip" style="color:var(--secondary);border-color:rgba(152,203,255,.3);background:rgba(152,203,255,.1)">Scikit-learn</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- SKILLS SECTION -->
-    <div class="section" id="section-skills">
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🐍</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Python</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">⚙️</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Java</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🚀</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Go</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">⚛️</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">React.js</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🔗</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Next.js</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">📝</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">TypeScript</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🟢</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Node.js</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">⚡</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">FastAPI</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">📦</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Docker</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🐧</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">Linux</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🤖</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">LangChain</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex flex-col items-center card-hover">
-                <div class="skill-ring h-14 w-14 rounded-full border-2 border-outline-variant flex items-center justify-center mb-2">
-                    <span class="skill-icon text-2xl">🧠</span>
-                </div>
-                <div class="font-mono text-[11px] text-on-surface text-center">OpenAI API</div>
-            </div>
-        </div>
-    </div>
+<!-- SKILLS SECTION -->
+<div class="section" id="section-skills">
+<div style="display:flex;flex-direction:column;gap:24px">
+<!-- Languages -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:var(--primary);display:inline-block"></span> LANGUAGES</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🐍</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Python</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">⚙️</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Java</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🚀</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Go</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">📝</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">C</div></div></div>
+</div>
+</div>
+<!-- Frontend -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:var(--primary);display:inline-block"></span> FRONTEND</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">⚛️</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">React.js</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">React Hooks</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🔗</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Next.js</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">SSR / Angular</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">📜</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">JavaScript</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">ES6+ / TypeScript</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🎨</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">CSS / HTML5</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Tailwind CSS</div></div></div>
+</div>
+</div>
+<!-- Backend -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:var(--primary);display:inline-block"></span> BACKEND</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🟢</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Node.js</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Express.js</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">⚡</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">FastAPI</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">Python</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🔌</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">REST APIs</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">JWT Auth</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🚀</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Go (Golang)</div></div></div>
+</div>
+</div>
+<!-- Cloud & DevOps -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:var(--primary);display:inline-block"></span> CLOUD & DEVOPS</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">📦</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Docker</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">☸️</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Kubernetes</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🔄</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">CI/CD</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">GitHub Actions</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🐧</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Linux</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">▲</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Vercel</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">⚡</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Supabase</div><div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant)">PostgreSQL</div></div></div>
+</div>
+</div>
+<!-- Databases -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:var(--primary);display:inline-block"></span> DATABASES</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🍃</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">MongoDB</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🐬</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">MySQL</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🗃️</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">SQL</div></div></div>
+</div>
+</div>
+<!-- AI / GenAI -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;background:var(--primary);display:inline-block"></span> AI / GENAI</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🤖</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">LangChain</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🧠</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">OpenAI API</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🐙</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">GitHub Copilot</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">📈</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">XGBoost</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">👁️</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">OpenCV</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><div class="skill-ring" style="width:40px;height:40px;border-radius:50%;border:2px solid var(--outline-variant);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="skill-icon" style="font-size:18px">🔧</span></div><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">ML Pipelines</div></div></div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- CERTS SECTION -->
-    <div class="section" id="section-certs">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative card-hover">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="font-headline text-[14px] text-on-surface font-semibold">Certified Scrum Master (CSM)</div>
-                <div class="font-mono text-[11px] text-secondary">Scrum Alliance | 2024</div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative card-hover">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="font-headline text-[14px] text-on-surface font-semibold">Full-Stack Web Engineering</div>
-                <div class="font-mono text-[11px] text-secondary">Selfmade Ninja Academy | 2024</div>
-            </div>
-        </div>
-        <div class="font-mono text-[11px] text-primary-fixed-dim tracking-wider mb-3">ACHIEVEMENTS</div>
-        <div class="space-y-2">
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">🏆</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">1st Prize - Ideathon (AI Alert System)</span>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">🥈</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">2nd Prize - Proof of Concept (CT-PG)</span>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">⭐</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">Best Co-Curricular Award 2024-25</span>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">💻</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">StarCoder - Coding Club</span>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">🌟</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">Young Indians IDS Finalist</span>
-            </div>
-        </div>
-        <div class="font-mono text-[11px] text-primary-fixed-dim tracking-wider mb-3 mt-6">LEADERSHIP</div>
-        <div class="space-y-2">
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">👥</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">Joint Secretary & Treasurer, Dept. CT-PG</span>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">📄</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">Documentation Head, ISTE Chapter</span>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-3 flex items-center gap-3 card-hover">
-                <span class="text-lg">🎭</span>
-                <span class="font-mono text-[12px] text-on-surface-variant">Additional Secretary, Cultural Club</span>
-            </div>
-        </div>
-    </div>
+<!-- CERTS SECTION -->
+<div class="section" id="section-certs">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative" class="card-hover">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="font-family:'Geist',sans-serif;font-size:14px;color:var(--on-surface);font-weight:600">Certified Scrum Master (CSM)</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--secondary)">Scrum Alliance | 2024</div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative" class="card-hover">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="font-family:'Geist',sans-serif;font-size:14px;color:var(--on-surface);font-weight:600">Full-Stack Web Engineering</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--secondary)">Selfmade Ninja Academy | 2024</div>
+</div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:12px">ACHIEVEMENTS</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">🏆</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">1st Prize - Ideathon (AI Alert System)</span></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">🥈</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">2nd Prize - Proof of Concept (CT-PG)</span></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">⭐</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">Best Co-Curricular Award 2024-25</span></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">💻</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">StarCoder - Coding Club</span></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">🌟</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">Young Indians IDS Finalist</span></div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin:24px 0 12px">LEADERSHIP</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">👥</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">Joint Secretary & Treasurer, Dept. CT-PG</span></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">📄</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">Documentation Head, ISTE Chapter</span></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:12px;display:flex;align-items:center;gap:12px" class="card-hover"><span style="font-size:18px">🎭</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant)">Additional Secretary, Cultural Club</span></div>
+</div>
+</div>
 
-    <!-- CONTACT SECTION -->
-    <div class="section" id="section-contact">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="space-y-3">
-                <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex items-center gap-4 card-hover">
-                    <span class="text-2xl">📧</span>
-                    <div>
-                        <div class="font-mono text-[10px] text-on-surface-variant tracking-wider">EMAIL</div>
-                        <div class="font-mono text-[12px] text-on-surface">srinathrbalaji03@gmail.com</div>
-                    </div>
-                </div>
-                <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex items-center gap-4 card-hover">
-                    <span class="text-2xl">📱</span>
-                    <div>
-                        <div class="font-mono text-[10px] text-on-surface-variant tracking-wider">PHONE</div>
-                        <div class="font-mono text-[12px] text-on-surface">+91 95975 40378</div>
-                    </div>
-                </div>
-                <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex items-center gap-4 card-hover">
-                    <span class="text-2xl">📍</span>
-                    <div>
-                        <div class="font-mono text-[10px] text-on-surface-variant tracking-wider">LOCATION</div>
-                        <div class="font-mono text-[12px] text-on-surface">Salem, Tamil Nadu, India</div>
-                    </div>
-                </div>
-                <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 flex items-center gap-4 card-hover">
-                    <span class="text-2xl">💼</span>
-                    <div>
-                        <div class="font-mono text-[10px] text-on-surface-variant tracking-wider">STATUS</div>
-                        <div class="font-mono text-[12px] text-primary-fixed-dim">Open to Opportunities</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-surface-container-lowest/80 border border-outline-variant p-4 relative">
-                <div class="corner-bracket corner-tl"></div>
-                <div class="corner-bracket corner-br"></div>
-                <div class="font-mono text-[11px] text-primary-fixed-dim tracking-wider mb-4">SOCIAL LINKS</div>
-                <div class="grid grid-cols-2 gap-3">
-                    <a href="https://github.com/RBalajisrinath" target="_blank" class="bg-surface-container/50 border border-outline-variant p-4 text-center card-hover block">
-                        <div class="text-2xl mb-2">🐙</div>
-                        <div class="font-mono text-[11px] text-on-surface">GitHub</div>
-                    </a>
-                    <a href="https://linkedin.com/in/balajisrinathr" target="_blank" class="bg-surface-container/50 border border-outline-variant p-4 text-center card-hover block">
-                        <div class="text-2xl mb-2">💼</div>
-                        <div class="font-mono text-[11px] text-on-surface">LinkedIn</div>
-                    </a>
-                    <a href="mailto:srinathrbalaji03@gmail.com" class="bg-surface-container/50 border border-outline-variant p-4 text-center card-hover block">
-                        <div class="text-2xl mb-2">📧</div>
-                        <div class="font-mono text-[11px] text-on-surface">Email</div>
-                    </a>
-                    <a href="tel:+919597540378" class="bg-surface-container/50 border border-outline-variant p-4 text-center card-hover block">
-                        <div class="text-2xl mb-2">📱</div>
-                        <div class="font-mono text-[11px] text-on-surface">Call</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- CONTACT SECTION -->
+<div class="section" id="section-contact">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;display:flex;align-items:center;gap:16px" class="card-hover"><span style="font-size:24px">📧</span><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);letter-spacing:.1em">EMAIL</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">srinathrbalaji03@gmail.com</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;display:flex;align-items:center;gap:16px" class="card-hover"><span style="font-size:24px">📱</span><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);letter-spacing:.1em">PHONE</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">+91 95975 40378</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;display:flex;align-items:center;gap:16px" class="card-hover"><span style="font-size:24px">📍</span><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);letter-spacing:.1em">LOCATION</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface)">Salem, Tamil Nadu, India</div></div></div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;display:flex;align-items:center;gap:16px" class="card-hover"><span style="font-size:24px">💼</span><div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);letter-spacing:.1em">STATUS</div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary)">Open to Opportunities</div></div></div>
+</div>
+<div style="background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);padding:16px;position:relative">
+<div class="corner-bracket corner-tl"></div><div class="corner-bracket corner-br"></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em;margin-bottom:16px">SOCIAL LINKS</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<a href="https://github.com/RBalajisrinath" target="_blank" style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:16px;text-align:center;display:block;text-decoration:none" class="card-hover"><div style="font-size:24px;margin-bottom:8px">🐙</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface)">GitHub</div></a>
+<a href="https://linkedin.com/in/balajisrinathr" target="_blank" style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:16px;text-align:center;display:block;text-decoration:none" class="card-hover"><div style="font-size:24px;margin-bottom:8px">💼</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface)">LinkedIn</div></a>
+<a href="mailto:srinathrbalaji03@gmail.com" style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:16px;text-align:center;display:block;text-decoration:none" class="card-hover"><div style="font-size:24px;margin-bottom:8px">📧</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface)">Email</div></a>
+<a href="tel:+919597540378" style="background:rgba(30,32,36,.5);border:1px solid var(--outline-variant);padding:16px;text-align:center;display:block;text-decoration:none" class="card-hover"><div style="font-size:24px;margin-bottom:8px">📱</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface)">Call</div></a>
+</div>
+</div>
+</div>
+</div>
 </main>
 
 <!-- Mobile Bottom Nav -->
-<nav class="md:hidden fixed bottom-0 w-full h-14 bg-surface/80 backdrop-blur-3xl border-t border-outline-variant flex justify-center items-center gap-2 px-4 z-50">
-    <a class="p-2 text-on-surface-variant hover:text-primary-fixed-dim" onclick="switchSection('about')"><span class="text-xl">👤</span></a>
-    <a class="p-2 text-on-surface-variant hover:text-primary-fixed-dim" onclick="switchSection('experience')"><span class="text-xl">💼</span></a>
-    <a class="p-2 text-on-surface-variant hover:text-primary-fixed-dim" onclick="switchSection('projects')"><span class="text-xl">🚀</span></a>
-    <a class="p-2 text-on-surface-variant hover:text-primary-fixed-dim" onclick="switchSection('skills')"><span class="text-xl">⚙️</span></a>
-    <a class="p-2 text-on-surface-variant hover:text-primary-fixed-dim" onclick="switchSection('contact')"><span class="text-xl">📡</span></a>
+<nav style="display:none;position:fixed;bottom:0;width:100%;height:56px;background:rgba(17,19,24,.8);backdrop-filter:blur(20px);border-top:1px solid var(--outline-variant);justify-content:center;align-items:center;gap:8px;padding:0 16px;z-index:50" id="mobile-nav">
+<a onclick="switchSection('about')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">👤</a>
+<a onclick="switchSection('experience')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">💼</a>
+<a onclick="switchSection('projects')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">🚀</a>
+<a onclick="switchSection('skills')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">⚙️</a>
+<a onclick="switchSection('contact')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">📡</a>
 </nav>
 
 <script>
-function switchSection(name) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('section-' + name).classList.add('active');
-    document.querySelector('[data-section="' + name + '"]').classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+// Matrix Rain
+const canvas=document.getElementById('matrix-canvas');const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+const chars='アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF';
+const fontSize=14;let columns=canvas.width/fontSize;let drops=Array(Math.floor(columns)).fill(1);
+function drawMatrix(){ctx.fillStyle='rgba(17,19,24,.05)';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00e639';ctx.font=fontSize+'px JetBrains Mono';for(let i=0;i<drops.length;i++){const text=chars[Math.floor(Math.random()*chars.length)];ctx.fillText(text,i*fontSize,drops[i]*fontSize);if(drops[i]*fontSize>canvas.height&&Math.random()>.975)drops[i]=0;drops[i]++}}
+setInterval(drawMatrix,50);
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;columns=canvas.width/fontSize;drops=Array(Math.floor(columns)).fill(1)});
+
+// Navigation
+function switchSection(name){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+document.getElementById('section-'+name).classList.add('active');
+document.querySelector('[data-section="'+name+'"]').classList.add('active');
+window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function updateClock() {
-    const now = new Date();
-    document.getElementById('clock').textContent = now.toLocaleTimeString('en-US', { hour12: false });
-}
-setInterval(updateClock, 1000);
-updateClock();
+// Clock
+function updateClock(){const now=new Date();document.getElementById('clock').textContent=now.toLocaleTimeString('en-US',{hour12:false})}
+setInterval(updateClock,1000);updateClock();
 
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.onkeydown = function(e) {
-    if (e.keyCode == 123) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+// Counter Animation
+function animateCounters(){
+document.querySelectorAll('.counter').forEach(num=>{
+const target=parseFloat(num.getAttribute('data-target'));
+let current=0;const step=target/40;
+const interval=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(interval)}num.textContent=Math.floor(current)+'+'},30);
+});
+}
+animateCounters();
+
+// Execute Scan Button
+function executeScan(){
+const btn=event.target;
+btn.textContent='SCANNING...';
+btn.style.background='var(--primary)';
+btn.style.color='var(--bg)';
+setTimeout(()=>{btn.textContent='SCAN COMPLETE';setTimeout(()=>{btn.textContent='EXECUTE SCAN';btn.style.background='rgba(0,230,57,.1)';btn.style.color='var(--primary)'},1500)},2000);
+}
+
+// Mobile Nav
+function checkMobile(){document.getElementById('mobile-nav').style.display=window.innerWidth<=768?'flex':'none'}
+window.addEventListener('resize',checkMobile);checkMobile();
+
+// Context Menu Protection
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.onkeydown=function(e){
+if(e.keyCode==123)return false;
+if(e.ctrlKey&&e.shiftKey&&e.keyCode=='I'.charCodeAt(0))return false;
+if(e.ctrlKey&&e.shiftKey&&e.keyCode=='J'.charCodeAt(0))return false;
+if(e.ctrlKey&&e.keyCode=='U'.charCodeAt(0))return false;
 };
+
+// Live Log Updates
+const logMessages=[
+{type:'success',msg:'> PKT [0x00A1] SRC:192.168.1.4 PAYLOAD_CHK_PASS'},
+{type:'success',msg:'> PKT [0x00A2] SRC:10.0.0.99 PAYLOAD_CHK_PASS'},
+{type:'error',msg:'> ALERT: UNAUTHORIZED ACCESS ATTEMPT\n   IP: 203.0.113.42\n   ACT: IP BANNED (DURATION: INF)'},
+{type:'success',msg:'> PKT [0x00A3] SRC:172.16.0.5 DECRYPTED'},
+{type:'success',msg:'> FIREWALL RULES UPDATED'},
+{type:'success',msg:'> ENCRYPTION KEY ROTATED'},
+];
+let logIndex=0;
+setInterval(()=>{
+const feed=document.getElementById('log-feed');
+if(!feed)return;
+const msg=logMessages[logIndex%logMessages.length];
+const div=document.createElement('div');
+div.style.marginTop='4px';
+if(msg.type==='error'){div.style.color='var(--error)';div.style.background='rgba(255,180,171,.1)';div.style.borderLeft='2px solid var(--error)';div.style.padding='4px'}
+else{div.style.color='var(--primary)'}
+div.textContent=msg.type==='error'?msg.msg:'> '+msg.msg.split('> ')[1];
+feed.appendChild(div);
+feed.scrollTop=feed.scrollHeight;
+logIndex++;
+},5000);
 </script>
 </body>
 </html>
