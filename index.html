@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CYBER-SENTINEL OS | PORTFOLIO</title>
+<title>PORTFOLIO | BALAJISRINATH R</title>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -71,7 +71,7 @@ body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface)
 <div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
 <div style="position:relative;z-index:10;text-align:center">
 <div style="font-family:'JetBrains Mono',monospace;font-size:48px;color:var(--primary);margin-bottom:24px;text-shadow:0 0 20px rgba(0,230,57,.5)">🔍</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--primary);letter-spacing:.2em;margin-bottom:16px" id="scan-status">INITIALIZING SYSTEM SCAN...</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--primary);letter-spacing:.2em;margin-bottom:16px" id="scan-status">LOADING PORTFOLIO...</div>
 <div style="width:300px;height:4px;background:var(--surface-container-high);margin:0 auto 16px;overflow:hidden">
 <div id="scan-progress" style="width:0%;height:100%;background:var(--primary);box-shadow:0 0 10px var(--primary);transition:width .3s"></div>
 </div>
@@ -82,13 +82,13 @@ body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface)
 <!-- Top Bar -->
 <header style="position:fixed;top:0;width:100%;height:48px;background:rgba(17,19,24,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--outline-variant);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:50">
 <div style="display:flex;align-items:center;gap:16px">
-<span style="font-family:'Geist',sans-serif;font-size:18px;font-weight:700;color:var(--primary);text-shadow:0 0 8px rgba(0,230,57,.5);letter-spacing:-.02em">CYBER-SENTINEL OS</span>
+<span style="font-family:'Geist',sans-serif;font-size:18px;font-weight:700;color:var(--primary);text-shadow:0 0 8px rgba(0,230,57,.5);letter-spacing:-.02em">BALAJISRINATH R</span>
 <nav style="display:flex;gap:4px;margin-left:16px">
 <a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('about')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">DASHBOARD</a>
-<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('experience')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">SCANNER</a>
-<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('projects')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">ENCRYPTION</a>
-<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('skills')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">TERMINAL</a>
-<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('contact')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">SETTINGS</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('experience')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">EXPERIENCE</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('projects')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">PROJECTS</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('skills')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">SKILLS</a>
+<a style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;padding:4px 8px;cursor:pointer;transition:all .2s" onclick="switchSection('contact')" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--on-surface-variant)'">CONTACT</a>
 </nav>
 </div>
 <div style="display:flex;align-items:center;gap:12px">
@@ -106,8 +106,8 @@ body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface)
 <div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,230,57,.2),transparent);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
 </div>
 <div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em">ROOT_USER</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);opacity:.7">ID: 0xB415R</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);letter-spacing:.1em">BALAJISRINATH R</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);opacity:.7">Full-Stack Developer</div>
 </div>
 </div>
 </div>
@@ -116,19 +116,19 @@ body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface)
 <span style="font-size:16px">👤</span> DASHBOARD
 </a>
 <a class="nav-item" data-section="experience" onclick="switchSection('experience')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
-<span style="font-size:16px">💼</span> SCANNER
+<span style="font-size:16px">💼</span> EXPERIENCE
 </a>
 <a class="nav-item" data-section="projects" onclick="switchSection('projects')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
-<span style="font-size:16px">🚀</span> ENCRYPTION
+<span style="font-size:16px">🚀</span> PROJECTS
 </a>
 <a class="nav-item" data-section="skills" onclick="switchSection('skills')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
-<span style="font-size:16px">⚙️</span> TERMINAL
+<span style="font-size:16px">⚙️</span> SKILLS
 </a>
 <a class="nav-item" data-section="certs" onclick="switchSection('certs')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
 <span style="font-size:16px">🏆</span> AWARDS
 </a>
 <a class="nav-item" data-section="contact" onclick="switchSection('contact')" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--on-surface-variant);padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer">
-<span style="font-size:16px">📡</span> SETTINGS
+<span style="font-size:16px">📡</span> CONTACT
 </a>
 </nav>
 <div style="padding:16px;border-top:1px solid var(--outline-variant)">
@@ -144,12 +144,12 @@ EXECUTE SCAN
 <div style="width:100%;border:1px solid var(--outline);background:rgba(40,42,46,.8);backdrop-filter:blur(12px);height:32px;display:flex;align-items:center;padding:0 16px;overflow:hidden;position:relative;margin-bottom:16px">
 <div style="position:absolute;inset:0;opacity:.2" class="scanlines"></div>
 <div style="display:flex;align-items:center;gap:16px;z-index:10;flex-shrink:0">
-<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--error);background:rgba(255,180,171,.1);padding:2px 8px;border:1px solid rgba(255,180,171,.5);animation:pulse-green 2s infinite">[ SECURITY: OMEGA ]</span>
-<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);border-left:1px solid var(--outline);padding-left:16px">[ UPLINK: ACTIVE ]</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);background:rgba(0,230,57,.1);padding:2px 8px;border:1px solid rgba(0,230,57,.5);animation:pulse-green 2s infinite">[ STATUS: ONLINE ]</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);border-left:1px solid var(--outline);padding-left:16px">[ WELCOME ]</span>
 </div>
 <div style="flex:1;overflow:hidden;margin-left:16px;z-index:10">
 <div class="animate-scroll" style="white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant)">
-<span style="color:var(--primary)">&gt;</span> SYS_INIT SECURE BOOT VERIFIED ... <span style="color:var(--error)">&gt;</span> PORTFOLIO MODULES LOADED ... <span style="color:var(--primary)">&gt;</span> FIREWALL RULES ACTIVE ... <span style="color:var(--on-surface)">&gt;</span> WELCOME, BALAJISRINATH ...
+<span style="color:var(--primary)">&gt;</span> SYSTEM INITIALIZED ... <span style="color:var(--primary)">&gt;</span> PORTFOLIO MODULES LOADED ... <span style="color:var(--primary)">&gt;</span> WELCOME, BALAJISRINATH ... <span style="color:var(--primary)">&gt;</span> OPEN TO OPPORTUNITIES ...
 </div>
 </div>
 </div>
@@ -574,7 +574,7 @@ Software engineer with 9+ months of internship experience in backend systems, RE
 <a onclick="switchSection('experience')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">💼</a>
 <a onclick="switchSection('projects')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">🚀</a>
 <a onclick="switchSection('skills')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">⚙️</a>
-<a onclick="switchSection('contact')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">📡</a>
+<a onclick="switchSection('contact')" style="padding:8px;color:var(--on-surface-variant);cursor:pointer;font-size:20px">📧</a>
 </nav>
 
 <script>
@@ -590,25 +590,25 @@ window.addEventListener('resize',()=>{canvas.width=window.innerWidth;columns=can
 // Real-time Scanning System
 const scanSteps=[
 {progress:5,msg:'> Loading system modules...'},
-{progress:10,msg:'> Verifying security protocols...'},
-{progress:15,msg:'> Scanning network interfaces...'},
-{progress:20,msg:'> Checking firewall rules...'},
-{progress:25,msg:'> Analyzing traffic patterns...'},
-{progress:30,msg:'> Decrypting secure channels...'},
-{progress:35,msg:'> Mapping system topology...'},
-{progress:40,msg:'> Validating certificates...'},
-{progress:45,msg:'> Monitoring active connections...'},
-{progress:50,msg:'> Scanning for vulnerabilities...'},
-{progress:55,msg:'> analyzing payload integrity...'},
-{progress:60,msg:'> Checking encryption keys...'},
-{progress:65,msg:'> Verifying system integrity...'},
-{progress:70,msg:'> Analyzing threat landscape...'},
-{progress:75,msg:'> Monitoring data streams...'},
-{progress:80,msg:'> Validating access controls...'},
-{progress:85,msg:'> Scanning port activity...'},
-{progress:90,msg:'> Finalizing security audit...'},
-{progress:95,msg:'> Generating threat report...'},
-{progress:100,msg:'> SCAN COMPLETE - ALL SYSTEMS SECURE'}
+{progress:10,msg:'> Initializing workspace...'},
+{progress:15,msg:'> Loading profile data...'},
+{progress:20,msg:'> Loading experience details...'},
+{progress:25,msg:'> Loading project information...'},
+{progress:30,msg:'> Loading technical skills...'},
+{progress:35,msg:'> Loading certifications...'},
+{progress:40,msg:'> Loading achievements...'},
+{progress:45,msg:'> Loading contact information...'},
+{progress:50,msg:'> Verifying data integrity...'},
+{progress:55,msg:'> Processing portfolio content...'},
+{progress:60,msg:'> Configuring interface...'},
+{progress:65,msg:'> Setting up animations...'},
+{progress:70,msg:'> Loading visual elements...'},
+{progress:75,msg:'> Finalizing layout...'},
+{progress:80,msg:'> Optimizing performance...'},
+{progress:85,msg:'> Testing responsiveness...'},
+{progress:90,msg:'> Completeing setup...'},
+{progress:95,msg:'> Almost ready...'},
+{progress:100,msg:'> PORTFOLIO READY - ALL SYSTEMS GO'}
 ];
 
 let currentStep=0;
@@ -621,7 +621,7 @@ const log=document.getElementById('scan-log');
 if(currentStep<scanSteps.length){
 const step=scanSteps[currentStep];
 progress.style.width=step.progress+'%';
-status.textContent=currentStep<scanSteps.length-1?'SCANNING... '+step.progress+'%':'SCAN COMPLETE';
+status.textContent=currentStep<scanSteps.length-1?'LOADING... '+step.progress+'%':'PORTFOLIO READY';
 log.innerHTML+='<div style="color:'+(step.progress===100?'var(--primary)':'var(--on-surface-variant)')+';margin:4px 0">'+step.msg+'</div>';
 log.scrollTop=log.scrollHeight;
 currentStep++;
@@ -663,18 +663,18 @@ animateCounters();
 // Execute Scan Button
 function executeScan(){
 const btn=event.target;
-btn.textContent='SCANNING...';
+btn.textContent='LOADING...';
 btn.style.background='var(--primary)';
 btn.style.color='var(--bg)';
 
 // Add scanning log messages
 const feed=document.getElementById('log-feed');
 const scanMsgs=[
-{type:'scan',msg:'> INITIATING MANUAL SCAN...'},
-{type:'scan',msg:'> Checking system integrity...'},
-{type:'scan',msg:'> Verifying security protocols...'},
-{type:'scan',msg:'> Analyzing network traffic...'},
-{type:'scan',msg:'> SCAN COMPLETE - ALL CLEAR'}
+{type:'scan',msg:'> Refreshing portfolio data...'},
+{type:'scan',msg:'> Reloading profile information...'},
+{type:'scan',msg:'> Updating project details...'},
+{type:'scan',msg:'> Syncing experience data...'},
+{type:'scan',msg:'> PORTFOLIO REFRESHED'}
 ];
 
 let i=0;
@@ -695,7 +695,7 @@ setTimeout(addScanMsg,400);
 }
 addScanMsg();
 
-setTimeout(()=>{btn.textContent='SCAN COMPLETE';setTimeout(()=>{btn.textContent='EXECUTE SCAN';btn.style.background='rgba(0,230,57,.1)';btn.style.color='var(--primary)'},1500)},2000);
+setTimeout(()=>{btn.textContent='COMPLETE';setTimeout(()=>{btn.textContent='EXECUTE SCAN';btn.style.background='rgba(0,230,57,.1)';btn.style.color='var(--primary)'},1500)},2000);
 }
 
 // Mobile Nav
@@ -713,16 +713,14 @@ if(e.ctrlKey&&e.keyCode=='U'.charCodeAt(0))return false;
 
 // Live Log Updates
 const logMessages=[
-{type:'success',msg:'> PKT [0x00A1] SRC:192.168.1.4 PAYLOAD_CHK_PASS'},
-{type:'success',msg:'> PKT [0x00A2] SRC:10.0.0.99 PAYLOAD_CHK_PASS'},
-{type:'error',msg:'> ALERT: UNAUTHORIZED ACCESS ATTEMPT\n   IP: 203.0.113.42\n   ACT: IP BANNED (DURATION: INF)'},
-{type:'success',msg:'> PKT [0x00A3] SRC:172.16.0.5 DECRYPTED'},
-{type:'success',msg:'> FIREWALL RULES UPDATED'},
-{type:'success',msg:'> ENCRYPTION KEY ROTATED'},
-{type:'success',msg:'> THREAT LEVEL: LOW'},
-{type:'success',msg:'> ALL SYSTEMS OPERATIONAL'},
-{type:'success',msg:'> MONITORING ACTIVE CONNECTIONS...'},
-{type:'success',msg:'> DATABASE INTEGRITY VERIFIED'}
+{type:'success',msg:'> Profile loaded successfully'},
+{type:'success',msg:'> Experience data synced'},
+{type:'success',msg:'> Projects indexed and ready'},
+{type:'success',msg:'> Skills database connected'},
+{type:'success',msg:'> Contact information verified'},
+{type:'success',msg:'> Portfolio modules active'},
+{type:'success',msg:'> System status: OPERATIONAL'},
+{type:'success',msg:'> All systems go'}
 ];
 let logIndex=0;
 setInterval(()=>{
