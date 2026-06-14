@@ -66,6 +66,19 @@ body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface)
 <body>
 <canvas id="matrix-canvas"></canvas>
 
+<!-- Scanning Overlay -->
+<div id="scan-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s">
+<div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
+<div style="position:relative;z-index:10;text-align:center">
+<div style="font-family:'JetBrains Mono',monospace;font-size:48px;color:var(--primary);margin-bottom:24px;text-shadow:0 0 20px rgba(0,230,57,.5)">🔍</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--primary);letter-spacing:.2em;margin-bottom:16px" id="scan-status">INITIALIZING SYSTEM SCAN...</div>
+<div style="width:300px;height:4px;background:var(--surface-container-high);margin:0 auto 16px;overflow:hidden">
+<div id="scan-progress" style="width:0%;height:100%;background:var(--primary);box-shadow:0 0 10px var(--primary);transition:width .3s"></div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--on-surface-variant);max-width:400px;text-align:left" id="scan-log"></div>
+</div>
+</div>
+
 <!-- Top Bar -->
 <header style="position:fixed;top:0;width:100%;height:48px;background:rgba(17,19,24,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--outline-variant);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:50">
 <div style="display:flex;align-items:center;gap:16px">
@@ -574,6 +587,56 @@ function drawMatrix(){ctx.fillStyle='rgba(17,19,24,.05)';ctx.fillRect(0,0,canvas
 setInterval(drawMatrix,50);
 window.addEventListener('resize',()=>{canvas.width=window.innerWidth;columns=canvas.width/fontSize;drops=Array(Math.floor(columns)).fill(1)});
 
+// Real-time Scanning System
+const scanSteps=[
+{progress:5,msg:'> Loading system modules...'},
+{progress:10,msg:'> Verifying security protocols...'},
+{progress:15,msg:'> Scanning network interfaces...'},
+{progress:20,msg:'> Checking firewall rules...'},
+{progress:25,msg:'> Analyzing traffic patterns...'},
+{progress:30,msg:'> Decrypting secure channels...'},
+{progress:35,msg:'> Mapping system topology...'},
+{progress:40,msg:'> Validating certificates...'},
+{progress:45,msg:'> Monitoring active connections...'},
+{progress:50,msg:'> Scanning for vulnerabilities...'},
+{progress:55,msg:'> analyzing payload integrity...'},
+{progress:60,msg:'> Checking encryption keys...'},
+{progress:65,msg:'> Verifying system integrity...'},
+{progress:70,msg:'> Analyzing threat landscape...'},
+{progress:75,msg:'> Monitoring data streams...'},
+{progress:80,msg:'> Validating access controls...'},
+{progress:85,msg:'> Scanning port activity...'},
+{progress:90,msg:'> Finalizing security audit...'},
+{progress:95,msg:'> Generating threat report...'},
+{progress:100,msg:'> SCAN COMPLETE - ALL SYSTEMS SECURE'}
+];
+
+let currentStep=0;
+function runScan(){
+const overlay=document.getElementById('scan-overlay');
+const status=document.getElementById('scan-status');
+const progress=document.getElementById('scan-progress');
+const log=document.getElementById('scan-log');
+
+if(currentStep<scanSteps.length){
+const step=scanSteps[currentStep];
+progress.style.width=step.progress+'%';
+status.textContent=currentStep<scanSteps.length-1?'SCANNING... '+step.progress+'%':'SCAN COMPLETE';
+log.innerHTML+='<div style="color:'+(step.progress===100?'var(--primary)':'var(--on-surface-variant)')+';margin:4px 0">'+step.msg+'</div>';
+log.scrollTop=log.scrollHeight;
+currentStep++;
+setTimeout(runScan,150+Math.random()*200);
+}else{
+setTimeout(()=>{
+overlay.style.opacity='0';
+setTimeout(()=>{overlay.style.display='none'},500);
+},1000);
+}
+}
+
+// Start scan on page load
+window.addEventListener('load',()=>{setTimeout(runScan,500)});
+
 // Navigation
 function switchSection(name){
 document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
@@ -603,6 +666,35 @@ const btn=event.target;
 btn.textContent='SCANNING...';
 btn.style.background='var(--primary)';
 btn.style.color='var(--bg)';
+
+// Add scanning log messages
+const feed=document.getElementById('log-feed');
+const scanMsgs=[
+{type:'scan',msg:'> INITIATING MANUAL SCAN...'},
+{type:'scan',msg:'> Checking system integrity...'},
+{type:'scan',msg:'> Verifying security protocols...'},
+{type:'scan',msg:'> Analyzing network traffic...'},
+{type:'scan',msg:'> SCAN COMPLETE - ALL CLEAR'}
+];
+
+let i=0;
+function addScanMsg(){
+if(i<scanMsgs.length){
+const div=document.createElement('div');
+div.style.marginTop='4px';
+div.style.color='var(--secondary)';
+div.style.borderLeft='2px solid var(--secondary)';
+div.style.padding='4px';
+div.style.background='rgba(152,203,255,.1)';
+div.textContent=scanMsgs[i].msg;
+feed.appendChild(div);
+feed.scrollTop=feed.scrollHeight;
+i++;
+setTimeout(addScanMsg,400);
+}
+}
+addScanMsg();
+
 setTimeout(()=>{btn.textContent='SCAN COMPLETE';setTimeout(()=>{btn.textContent='EXECUTE SCAN';btn.style.background='rgba(0,230,57,.1)';btn.style.color='var(--primary)'},1500)},2000);
 }
 
@@ -627,6 +719,10 @@ const logMessages=[
 {type:'success',msg:'> PKT [0x00A3] SRC:172.16.0.5 DECRYPTED'},
 {type:'success',msg:'> FIREWALL RULES UPDATED'},
 {type:'success',msg:'> ENCRYPTION KEY ROTATED'},
+{type:'success',msg:'> THREAT LEVEL: LOW'},
+{type:'success',msg:'> ALL SYSTEMS OPERATIONAL'},
+{type:'success',msg:'> MONITORING ACTIVE CONNECTIONS...'},
+{type:'success',msg:'> DATABASE INTEGRITY VERIFIED'}
 ];
 let logIndex=0;
 setInterval(()=>{
@@ -641,7 +737,7 @@ div.textContent=msg.type==='error'?msg.msg:'> '+msg.msg.split('> ')[1];
 feed.appendChild(div);
 feed.scrollTop=feed.scrollHeight;
 logIndex++;
-},5000);
+},4000);
 </script>
 </body>
 </html>
