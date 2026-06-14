@@ -131,11 +131,6 @@ body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--on-surface)
 <span style="font-size:16px">📡</span> CONTACT
 </a>
 </nav>
-<div style="padding:16px;border-top:1px solid var(--outline-variant)">
-<button onclick="executeScan()" style="width:100%;background:rgba(0,230,57,.1);border:1px solid var(--primary);color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:11px;padding:8px;cursor:pointer;letter-spacing:.1em;transition:all .3s;box-shadow:0 0 10px rgba(0,230,57,.2)" onmouseover="this.style.background='var(--primary)';this.style.color='var(--bg)';this.style.boxShadow='0 0 15px rgba(0,230,57,.6)'" onmouseout="this.style.background='rgba(0,230,57,.1)';this.style.color='var(--primary)';this.style.boxShadow='0 0 10px rgba(0,230,57,.2)'">
-EXECUTE SCAN
-</button>
-</div>
 </aside>
 
 <!-- Main Content -->
@@ -159,23 +154,6 @@ EXECUTE SCAN
 <div style="display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:16px">
 <!-- Left Panel -->
 <div style="display:flex;flex-direction:column;gap:16px">
-<!-- Tactical Status -->
-<div style="background:rgba(0,0,0,.6);border:1px solid var(--outline-variant);padding:16px;backdrop-filter:blur(20px);position:relative">
-<div class="corner-bracket corner-tl"></div>
-<div class="corner-bracket corner-br"></div>
-<h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface-variant);letter-spacing:.1em;margin-bottom:12px;border-bottom:1px solid rgba(132,150,126,.5);padding-bottom:8px">TACTICAL STATUS</h2>
-<div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
-<span style="font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--primary);text-shadow:0 0 5px rgba(0,230,57,.5)">ACTIVE</span>
-<span style="color:var(--primary)" class="pulse-green">●</span>
-</div>
-<div style="width:100%;background:var(--surface-container-high);height:4px;margin-top:12px">
-<div style="background:var(--primary);height:100%;width:92%;box-shadow:0 0 8px rgba(0,230,57,.5)"></div>
-</div>
-<div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--on-surface-variant);margin-top:4px">
-<span>SYSTEM CAPACITY</span>
-<span>92%</span>
-</div>
-</div>
 <!-- Profile Card -->
 <div style="flex:1;background:rgba(12,14,18,.8);border:1px solid var(--outline-variant);backdrop-filter:blur(20px);padding:16px;display:flex;flex-direction:column;position:relative;overflow:hidden">
 <div style="position:absolute;inset:0;opacity:.1" class="scanlines"></div>
@@ -183,7 +161,7 @@ EXECUTE SCAN
 <div class="corner-bracket corner-tr"></div>
 <div class="corner-bracket corner-bl"></div>
 <div class="corner-bracket corner-br"></div>
-<h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);margin-bottom:12px;z-index:10;letter-spacing:.1em">🔑 IDENTITY_GEN</h2>
+<h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);margin-bottom:12px;z-index:10;letter-spacing:.1em">PROFILE</h2>
 <div style="position:relative;width:100%;aspect-ratio:1;background:#000;border:1px solid var(--outline);margin-bottom:16px;z-index:10;overflow:hidden">
 <div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,230,57,.1),transparent);display:flex;align-items:center;justify-content:center;font-size:60px" class="float">💻</div>
 <div style="position:absolute;inset:0;border:1px solid rgba(0,230,57,.2);pointer-events:none;background-image:linear-gradient(var(--primary) 1px,transparent 1px),linear-gradient(90deg,var(--primary) 1px,transparent 1px);background-size:20px 20px;opacity:.1"></div>
@@ -191,7 +169,7 @@ EXECUTE SCAN
 </div>
 <div style="font-family:'JetBrains Mono',monospace;font-size:11px;z-index:10;margin-top:auto">
 <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(132,150,126,.3);padding:4px 0">
-<span style="color:var(--on-surface-variant)">SUBJECT:</span>
+<span style="color:var(--on-surface-variant)">NAME:</span>
 <span style="color:var(--on-surface)">BALAJISRINATH R</span>
 </div>
 <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(132,150,126,.3);padding:4px 0">
@@ -199,8 +177,8 @@ EXECUTE SCAN
 <span style="color:var(--primary)">FULL-STACK DEV</span>
 </div>
 <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(132,150,126,.3);padding:4px 0">
-<span style="color:var(--on-surface-variant)">CLEARANCE:</span>
-<span style="color:var(--primary)">OMEGA</span>
+<span style="color:var(--on-surface-variant)">STATUS:</span>
+<span style="color:var(--primary)">OPEN TO WORK</span>
 </div>
 </div>
 </div>
@@ -212,7 +190,7 @@ EXECUTE SCAN
 <div class="corner-bracket corner-bl" style="z-index:20"></div>
 <div class="corner-bracket corner-br" style="z-index:20"></div>
 <div style="position:absolute;top:16px;left:0;width:100%;display:flex;justify-content:center;z-index:20;pointer-events:none">
-<span style="background:rgba(0,0,0,.8);color:var(--error);font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 12px;border:1px solid rgba(255,180,171,.5);letter-spacing:.2em" class="glitch-hover">PROFILE VISUALIZER</span>
+<span style="background:rgba(0,0,0,.8);color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 12px;border:1px solid rgba(0,230,57,.5);letter-spacing:.2em" class="glitch-hover">PROFILE OVERVIEW</span>
 </div>
 <div style="position:absolute;inset:0;opacity:.3;z-index:10;pointer-events:none" class="scanlines"></div>
 <!-- Radar -->
@@ -253,7 +231,7 @@ Software engineer with 9+ months of internship experience in backend systems, RE
 <div style="background:rgba(0,0,0,.8);border:1px solid var(--outline-variant);backdrop-filter:blur(20px);display:flex;flex-direction:column;overflow:hidden;position:relative">
 <div style="background:rgba(51,53,57,.5);border-bottom:1px solid var(--outline-variant);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;z-index:10;flex-shrink:0">
 <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--on-surface);letter-spacing:.1em;display:flex;align-items:center;gap:8px">
-<span style="color:var(--primary)">📡</span> GLOBAL INTERCEPT
+<span style="color:var(--primary)">📡</span> QUICK INFO
 </span>
 <span style="display:flex;height:8px;width:8px;position:relative">
 <span style="animation:pulse-green 2s infinite;position:absolute;display:inline-flex;height:100%;width:100%;border-radius:50%;background:var(--primary);opacity:.75"></span>
@@ -659,44 +637,6 @@ const interval=setInterval(()=>{current+=step;if(current>=target){current=target
 });
 }
 animateCounters();
-
-// Execute Scan Button
-function executeScan(){
-const btn=event.target;
-btn.textContent='LOADING...';
-btn.style.background='var(--primary)';
-btn.style.color='var(--bg)';
-
-// Add scanning log messages
-const feed=document.getElementById('log-feed');
-const scanMsgs=[
-{type:'scan',msg:'> Refreshing portfolio data...'},
-{type:'scan',msg:'> Reloading profile information...'},
-{type:'scan',msg:'> Updating project details...'},
-{type:'scan',msg:'> Syncing experience data...'},
-{type:'scan',msg:'> PORTFOLIO REFRESHED'}
-];
-
-let i=0;
-function addScanMsg(){
-if(i<scanMsgs.length){
-const div=document.createElement('div');
-div.style.marginTop='4px';
-div.style.color='var(--secondary)';
-div.style.borderLeft='2px solid var(--secondary)';
-div.style.padding='4px';
-div.style.background='rgba(152,203,255,.1)';
-div.textContent=scanMsgs[i].msg;
-feed.appendChild(div);
-feed.scrollTop=feed.scrollHeight;
-i++;
-setTimeout(addScanMsg,400);
-}
-}
-addScanMsg();
-
-setTimeout(()=>{btn.textContent='COMPLETE';setTimeout(()=>{btn.textContent='EXECUTE SCAN';btn.style.background='rgba(0,230,57,.1)';btn.style.color='var(--primary)'},1500)},2000);
-}
 
 // Mobile Nav
 function checkMobile(){document.getElementById('mobile-nav').style.display=window.innerWidth<=768?'flex':'none'}
